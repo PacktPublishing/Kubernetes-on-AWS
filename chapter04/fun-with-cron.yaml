@@ -1,0 +1,18 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: fun-with-cron
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            cronjob: fun-with-cron
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: how-soon-is-now
+            image: alpine:3.6
+            command: ["/bin/date"]

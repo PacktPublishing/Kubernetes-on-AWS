@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: luck
+spec:
+  template:
+    metadata:
+      name: luck
+    spec:
+      containers:
+      - name: luck
+        image: ruby:alpine
+        command: ["ruby"]
+        args: ["-e", "exit rand(10)"]
+      restartPolicy: Never

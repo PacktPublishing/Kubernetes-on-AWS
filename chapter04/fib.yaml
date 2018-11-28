@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: fib
+spec:
+  template:
+     metadata:
+       name: fib
+     spec:
+       containers:
+       - name: fib
+         image: ruby:alpine
+         command: ["ruby"]
+         args:
+         - -e
+         - |
+           a,b = 0,1
+           100.times { puts b = (a = a+b) - b }
+       restartPolicy: Never

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: versions
+  labels:
+    app: ver
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ver
+  template:
+    metadata:
+      labels:
+        app: ver
+        version: 0.0.1
+    spec:
+      containers:
+      - name: version-server
+        image: errm/versions:0.0.1
+        ports:
+        - name: http
+          containerPort: 3000

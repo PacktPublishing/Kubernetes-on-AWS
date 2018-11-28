@@ -1,0 +1,42 @@
+apiVersion: apps/v1beta2
+kind: DaemonSet
+metadata:
+  labels:
+    app: node-exporter
+  name: node-exporter
+spec:
+  selector:
+    matchLabels:
+      app: node-exporter
+  template:
+    metadata:
+      labels:
+        app: node-exporter
+    spec:
+      nodeSelector:
+        monitoring: prometheus
+      containers:
+      - name: node-exporter
+        image: quay.io/prometheus/node-exporter:v0.15.2
+        args:
+        - --path.procfs=/host/proc
+        - --path.sysfs=/host/sys
+        volumeMounts:
+        - mountPath: /host/proc
+          name: proc
+          readOnly: false
+        - mountPath: /host/sys
+          name: sys
+          readOnly: false
+        ports:
+        - containerPort: 9100
+          hostPort: 9100
+      hostNetwork: true
+      hostPID: true
+      volumes:
+      - hostPath:
+          path: /proc
+        name: proc
+      - hostPath:
+          path: /sys
+        name: sys

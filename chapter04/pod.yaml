@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-loop
+spec:
+  containers:
+  - name: loop
+    image: alpine
+    command: ["/bin/sh"]
+    args:
+    - -c
+    - while true; do echo "hello world"; sleep 2s; done
