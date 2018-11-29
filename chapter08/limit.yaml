@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: limit-example
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: example
+  namespace: limit-example
+spec:
+  limits:
+  - default:
+      memory: 512Mi
+      cpu: 1
+    defaultRequest:
+      memory: 256Mi
+      cpu: 500m
+    type: Container
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example
+  namespace: limit-example
+spec:
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: nginx
+        image: nginx

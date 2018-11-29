@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fib
+  labels:
+    app: fib
+spec:
+  selector:
+    matchLabels:
+      app: fib
+  template:
+    metadata:
+      labels:
+        app: fib
+    spec:
+      containers:
+      - name: fib
+        image: errm/fib
+        ports:
+        - containerPort: 9292
+        resources:
+          limits:
+            cpu: 250m
+            memory: 32Mi
