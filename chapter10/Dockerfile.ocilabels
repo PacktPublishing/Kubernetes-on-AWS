@@ -1,0 +1,15 @@
+FROM scratch
+
+ARG GIT_SHA
+ARG BUILD_TIME
+
+LABEL org.opencontainers.image.title="Example" \
+      org.opencontainers.image.description="This image is an example, showing how standard OCI annotations can be used as docker labels" \
+      org.opencontainers.image.created=$BUILD_TIME \
+      org.opencontainers.image.authors="Ed Robinson <ed@errm.co.uk>" \
+      org.opencontainers.image.url="https://github.com/PacktPublishing/Kubernetes-on-AWS" \
+      org.opencontainers.image.documentation="https://www.packtpub.com/virtualization-and-cloud/kubernetes-aws" \
+      org.opencontainers.image.source="https://github.com/PacktPublishing/Kubernetes-on-AWS/tree/master/chapter10" \
+      org.opencontainers.image.revsion=$GIT_SHA \
+      org.opencontainers.image.vendor="Packt Publishing Limited" \
+      org.opencontainers.image.licenses="MIT"
