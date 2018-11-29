@@ -1,0 +1,36 @@
+{
+  "variables": {
+    "k8s_version": "1.10.3",
+    "docker_version": "17.06",
+    "ekstrap_version": "0.0.11"
+  },
+  "builders": [{
+    "type": "amazon-ebs",
+    "region": "us-west-2",
+    "source_ami_filter": {
+      "filters": {
+        "virtualization-type": "hvm",
+        "name": "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*",
+        "root-device-type": "ebs"
+      },
+      "owners": ["099720109477"],
+      "most_recent": true
+    },
+    "instance_type": "t2.micro",
+    "ssh_username": "ubuntu",
+    "ami_name": "eks-worker-ubuntu-xenial-16.04-amd64-k8s-{{user `k8s_version`}}-{{timestamp}}",
+    "ami_regions": ["us-east-1", "us-west-2"]
+  }],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "install.sh",
+      "execute_command": "sudo env {{ .Vars }} {{ .Path }}",
+      "environment_vars": [
+        "K8S_VERSION={{user `k8s_version`}}",
+        "DOCKER_VERSION={{user `docker_version`}}",
+        "EKSTRAP_VERSION={{user `ekstrap_version`}}"
+      ]
+    }
+  ]
+}
