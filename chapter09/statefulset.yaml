@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: randserver
+  labels:
+    app: randserver
+spec:
+  ports:
+  - port: 80
+    name: web
+    targetPort: 3000
+  clusterIP: None
+  selector:
+    app: randserver
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: randserver
+spec:
+  selector:
+    matchLabels:
+      app: randserver
+  serviceName: randserver
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: randserver
+    spec:
+      containers:
+      - image: errm/randserver
+        name: randserver
+        volumeMounts:
+        - mountPath: /data
+          name: data
+        securityContext:
+          readOnlyRootFilesystem: true
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        storageClassName: general-purpose
+        resources:
+          requests:
+            storage: 1Gi

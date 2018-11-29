@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: randserver-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: general-purpose
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: randserver
+spec:
+  selector:
+    matchLabels:
+      app: randserver
+  template:
+    metadata:
+      labels:
+        app: randserver
+    spec:
+      containers:
+      - image: errm/randserver
+        name: randserver
+        volumeMounts:
+        - mountPath: /data
+          name: data
+        securityContext:
+          readOnlyRootFilesystem: true
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: randserver-data

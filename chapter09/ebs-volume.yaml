@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: randserver
+spec:
+  selector:
+    matchLabels:
+      app: randserver
+  template:
+    metadata:
+      labels:
+        app: randserver
+    spec:
+      containers:
+      - image: errm/randserver
+        name: randserver
+        volumeMounts:
+        - mountPath: /data
+          name: data
+        securityContext:
+          readOnlyRootFilesystem: true
+      volumes:
+      - name: data
+        awsElasticBlockStore:
+          volumeID: <replace with your own volume id>
+          fsType: ext4
+      nodeSelector:
+        "failure-domain.beta.kubernetes.io/zone": us-east-1a
