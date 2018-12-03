@@ -29,15 +29,17 @@ alt="https://www.packtpub.com/" border="5" /></a>
 All of the code is organized into folders. For example, Chapter05.
 
 The code will look like the following:
-
-users:
-yogi:
-food: picnic
-height: 1500
-paddington:
-food: marmalade
-height: 1066
-
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  user_id.properties: |-
+    {{- range $index, $user := .Values.users }}
+    user.{{ $user }}={{ $index }}
+    {{- end }}
+```
 **Following is what you need for this book:**
 If you’re a cloud engineer, cloud solution provider, sysadmin, site reliability engineer, or developer with an interest in DevOps and are looking for an extensive guide to running Kubernetes in the AWS environment, this book is for you. Though any previous knowledge of Kubernetes is not expected, some experience with Linux and Docker containers would be a bonus.
 
@@ -48,9 +50,6 @@ With the following software and hardware list you can run all code files present
 | Chapter  | Software required                   | OS required                        |
 | -------- | ------------------------------------| -----------------------------------|
 | 1 to 10  | Kubernetes, AWS account, Minikube   | Windows                            |
-
-
-
 
 
 
