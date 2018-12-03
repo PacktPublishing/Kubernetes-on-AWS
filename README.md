@@ -57,7 +57,7 @@ With the following software and hardware list you can run all code files present
 
 ## Get to Know the Author
 **Ed Robinson**
-Ed Robinson works as a senior site reliability engineer at Cookpad's global headquarters in Bristol, UK. He has been working with Kubernetes for the last three years, deploying clusters on AWS to deliver resilient and reliable services for global audiences. He is a contributor to several open source projects and is a maintainer of Træfɪk, the modern HTTP reverse proxy designed for containers and microservices
+works as a senior site reliability engineer at Cookpad's global headquarters in Bristol, UK. He has been working with Kubernetes for the last three years, deploying clusters on AWS to deliver resilient and reliable services for global audiences. He is a contributor to several open source projects and is a maintainer of Træfɪk, the modern HTTP reverse proxy designed for containers and microservices
 
 
 
