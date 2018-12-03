@@ -1,11 +1,8 @@
 # Kubernetes on AWS
 
-
-
-
 <a href="https://www.packtpub.com/virtualization-and-cloud/kubernetes-aws?utm_source=9781788390071"><img src="https://dz13w8afd47il.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/9781788390071--.png" alt="Kubernetes on AWS" height="256px" align="right"></a>
 
-This is the code repository for Kubernetes on AWS(https://www.packtpub.com/virtualization-and-cloud/kubernetes-aws?utm_source=9781788390071), published by Packt.
+This is the code repository for [Kubernetes on AWS](https://www.packtpub.com/virtualization-and-cloud/kubernetes-aws?utm_source=9781788390071), published by Packt.
 
 **Deploy and manage production-ready Kubernetes clusters on AWS**
 
