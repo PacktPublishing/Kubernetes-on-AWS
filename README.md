@@ -1,5 +1,5 @@
 # Kubernetes on AWS
-Kubernetes on AWS, published by Packt
+
 
 
 
@@ -26,23 +26,17 @@ alt="https://www.packtpub.com/" border="5" /></a>
 
 
 ## Instructions and Navigations
-All of the code is organized into folders. For example, Chapter02.
+All of the code is organized into folders. For example, Chapter05.
 
 The code will look like the following:
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <style>
-      blink { animation: blink 1s steps(1) infinite; }
-      @keyframes blink { 50% { color: transparent; } }
-    </style>
-  <title>Hello World</title>
-  </head>
-  <body>
-    <h1>Hello <blink>1994</blink></h1>
-  </body>
-</html>
+users:
+yogi:
+food: picnic
+height: 1500
+paddington:
+food: marmalade
+height: 1066
 
 **Following is what you need for this book:**
 If you’re a cloud engineer, cloud solution provider, sysadmin, site reliability engineer, or developer with an interest in DevOps and are looking for an extensive guide to running Kubernetes in the AWS environment, this book is for you. Though any previous knowledge of Kubernetes is not expected, some experience with Linux and Docker containers would be a bonus.
