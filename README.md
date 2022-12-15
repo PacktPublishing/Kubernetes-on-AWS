@@ -1,3 +1,15 @@
+
+### Get this product for $5
+
+<i>Packt is having its biggest sale of the year. Get this eBook or any other book, video, or course that you like just for $5 each</i>
+
+
+<b><p align='center'>[Buy now](https://packt.link/9781788390071)</p></b>
+
+
+<b><p align='center'>[Buy similar titles for just $5](https://subscription.packtpub.com/search)</p></b>
+
+
 # Kubernetes on AWS
 
 <a href="https://www.packtpub.com/virtualization-and-cloud/kubernetes-aws?utm_source=9781788390071"><img src="https://dz13w8afd47il.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/9781788390071--.png" alt="Kubernetes on AWS" height="256px" align="right"></a>
